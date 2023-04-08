@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
   
-Auth::routes();
+Auth::routes(['verify' => true]);
    
 Route::middleware(['2fa'])->group(function () {
    
