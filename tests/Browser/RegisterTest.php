@@ -69,7 +69,7 @@ class RegisterTest extends DuskTestCase
         });
     }
 
-    public function test_register_new_user_with_2fa()
+    public function test_register_new_user_with_wrong_2fa()
     {
         $user = User::factory()->make([
             'google2fa_secret' => app('pragmarx.google2fa')->generateSecretKey(),
