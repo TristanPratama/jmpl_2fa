@@ -34,7 +34,7 @@ class LoginTest extends DuskTestCase
                 ->press('Login')
                 ->assertPathIs('/2fa')
                 ->assertSee("The 'One Time Password' typed was wrong.")
-                ->pause(3000);
+                ->pause(1000);
 
             $browser->logout();
         });
@@ -55,7 +55,7 @@ class LoginTest extends DuskTestCase
                 ->type('one_time_password', app('pragmarx.google2fa')->getCurrentOtp($user->google2fa_secret))
                 ->press('Login')
                 ->assertPathIs('/home')
-                ->pause(3000);
+                ->pause(1000);
 
             $browser->logout();
         });
@@ -74,7 +74,7 @@ class LoginTest extends DuskTestCase
                 ->press('Login')
                 ->assertPathIs('/login')
                 ->assertSee('These credentials do not match our records.')
-                ->pause(3000);
+                ->pause(1000);
         });
     }
 
@@ -91,7 +91,7 @@ class LoginTest extends DuskTestCase
                 ->press('Login')
                 ->assertPathIs('/login')
                 ->assertSee('These credentials do not match our records.')
-                ->pause(3000);
+                ->pause(1000);
         });
     }
 
@@ -108,7 +108,7 @@ class LoginTest extends DuskTestCase
                 ->press('Login')
                 ->assertPathIs('/login')
                 ->assertSee('These credentials do not match our records.')
-                ->pause(3000);
+                ->pause(1000);
         });
     }
     
@@ -126,7 +126,7 @@ class LoginTest extends DuskTestCase
                 ->press('Login')
                 ->assertPathIs('/login')
                 ->assertSee('CAPTCHA validation failed, please try again.')
-                ->pause(3000);
+                ->pause(1000);
         });
     }
 
@@ -144,7 +144,7 @@ class LoginTest extends DuskTestCase
                 ->press('Login')
                 ->assertPathIs('/login')
                 ->assertSee('CAPTCHA validation failed, please try again.')
-                ->pause(3000);
+                ->pause(1000);
         });
     }
 
@@ -167,7 +167,7 @@ class LoginTest extends DuskTestCase
                 ->waitForLocation('/register')
                 ->clickLink('Complete Registration')
 		        ->assertPathIs('/email/verify')
-                ->pause(5000);
+                ->pause(1000);
             
             $browser->logout();
         });
@@ -190,7 +190,7 @@ class LoginTest extends DuskTestCase
                 ->press('click here to request another')
 		        ->assertPathIs('/email/verify')
                 ->assertSee('A fresh verification link has been sent to your email address.')
-                ->pause(5000);
+                ->pause(1000);
             
             $browser->logout();
         });
@@ -217,7 +217,7 @@ class LoginTest extends DuskTestCase
 
             $browser->assertPathIs('/email/verify')
                 ->visit('home')
-                ->pause(5000);
+                ->pause(1000);
             
             $browser->logout();
         });

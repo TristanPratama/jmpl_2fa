@@ -31,7 +31,7 @@ class RegisterTest extends DuskTestCase
                 ->press('Register')
 		        ->assertPathIs('/register')
                 ->assertSee('The email has already been taken.')
-                ->pause(5000);
+                ->pause(1000);
         });
     }
 
@@ -48,7 +48,7 @@ class RegisterTest extends DuskTestCase
                 ->press('Register')
 		        ->assertPathIs('/register')
                 ->assertSee('The password field must be at least 6 characters.')
-                ->pause(5000);
+                ->pause(1000);
         });
     }
 
@@ -65,7 +65,7 @@ class RegisterTest extends DuskTestCase
                 ->press('Register')
 		        ->assertPathIs('/register')
                 ->assertSee('The password field confirmation does not match.')
-                ->pause(5000);
+                ->pause(1000);
         });
     }
 
@@ -89,7 +89,7 @@ class RegisterTest extends DuskTestCase
                 ->type('one_time_password', app('pragmarx.google2fa')->getCurrentOtp($secret))
                 ->press('Login')
 		        ->assertPathIs('/2fa')
-                ->pause(5000);
+                ->pause(1000);
             
             $browser->logout();
         });
